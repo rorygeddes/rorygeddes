@@ -1,13 +1,6 @@
 'use client';
 
-import { Metadata } from 'next';
 import StudentCard from '@/components/StudentCard';
-
-// This metadata export needs to be moved to a separate file for static metadata in app router
-export const metadata: Metadata = {
-  title: 'Finance Students - Luni Community',
-  description: 'Connect with finance students from top universities around the world',
-};
 
 // Sample data
 const students = [
