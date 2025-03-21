@@ -1,14 +1,15 @@
-import { Metadata } from 'next';
+'use client';
+
 import ProfileSection from '@/components/ProfileSection';
 import ResumeSection from '@/components/ResumeSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
-
-export const metadata: Metadata = {
-  title: 'Home - Rory Geddes',
-  description: 'Welcome to my professional portfolio',
-};
+import StudentCarousel from '@/components/StudentCarousel';
+import UserProfile from '@/components/UserProfile';
+import SidebarNav from '@/components/SidebarNav';
+import PostCard from '@/components/PostCard';
+import NewsCard from '@/components/NewsCard';
 
 // Sample data - you'll replace this with your actual information
 const profile = {
@@ -98,41 +99,187 @@ const skillCategories = [
     name: 'Soft Skills',
     skills: ['Communication', 'Problem Solving', 'Teamwork', 'Critical Thinking', 'Attention to Detail', 'Time Management'],
   },
-  // Add more categories as needed
+];
+
+// Sample data
+const students = [
+  {
+    id: '1',
+    name: 'Sarah Johnson',
+    university: 'Harvard Business School',
+    imagePath: '/students/placeholder.jpg',
+    profileUrl: '/students/sarah-johnson',
+  },
+  {
+    id: '2',
+    name: 'Michael Chen',
+    university: 'Stanford University',
+    imagePath: '/students/placeholder.jpg',
+    profileUrl: '/students/michael-chen',
+  },
+  {
+    id: '3',
+    name: 'Alex Rodriguez',
+    university: 'Wharton School of Business',
+    imagePath: '/students/placeholder.jpg',
+    profileUrl: '/students/alex-rodriguez',
+  },
+  {
+    id: '4',
+    name: 'Rory Geddes',
+    university: 'Dalhousie University',
+    imagePath: '/profile.jpg',
+    profileUrl: '/about',
+  },
+  {
+    id: '5',
+    name: 'Emily Zhang',
+    university: 'MIT Sloan',
+    imagePath: '/students/placeholder.jpg',
+    profileUrl: '/students/emily-zhang',
+  },
+  {
+    id: '6',
+    name: 'David Kim',
+    university: 'Columbia Business School',
+    imagePath: '/students/placeholder.jpg',
+    profileUrl: '/students/david-kim',
+  },
+  {
+    id: '7',
+    name: 'Sophia Patel',
+    university: 'Chicago Booth',
+    imagePath: '/students/placeholder.jpg',
+    profileUrl: '/students/sophia-patel',
+  },
+];
+
+const posts = [
+  {
+    type: 'system' as const,
+    author: 'System Admin',
+    timestamp: '2h ago',
+    content: 'Welcome to the Finance Student Community Hub! Connect with peers, share insights, and discover opportunities in finance.',
+  },
+  {
+    type: 'user' as const,
+    author: 'Emily Zhang',
+    timestamp: '5h ago',
+    content: 'Just finished my financial analysis project on sustainable investing trends. Would love to connect with others interested in ESG investing!',
+  },
+  {
+    type: 'user' as const,
+    author: 'Michael Chen',
+    timestamp: '1d ago',
+    content: 'Has anyone used Bloomberg Terminal for portfolio optimization? Looking for tips on efficient frontier calculation.',
+  },
+];
+
+const newsItems = [
+  {
+    title: 'Top Finance Internships for Summer 2024',
+    timeAgo: '1d ago',
+    readers: 1234,
+  },
+  {
+    title: 'New Financial Analysis Tools for Students',
+    timeAgo: '2d ago',
+    readers: 987,
+  },
+  {
+    title: 'Finance Industry Outlook: 2024-2025',
+    timeAgo: '3d ago',
+    readers: 2189,
+  },
 ];
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Profile Section */}
-      <ProfileSection 
-        name={profile.name}
-        title={profile.title}
-        bio={profile.bio}
-        imagePath={profile.imagePath}
-      />
+    <div className="bg-gray-50 min-h-screen">
+      {/* Student carousel section */}
+      <StudentCarousel students={students} title="Connect with Finance Students" />
       
-      {/* Resume Section */}
-      <div id="resume">
-        <ResumeSection 
-          resumePath="/resume.pdf" // Add your resume PDF to the public folder
-          resumePreviewPath="/resume.pdf" // You can use the same file for preview
-        />
-      </div>
-      
-      {/* Experience Section */}
-      <div id="experience">
-        <ExperienceSection experiences={experiences} />
-      </div>
-      
-      {/* Projects Section */}
-      <div id="projects">
-        <ProjectsSection projects={projects} />
-      </div>
-      
-      {/* Skills Section */}
-      <div id="skills">
-        <SkillsSection categories={skillCategories} />
+      {/* Main content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Left sidebar */}
+          <div className="lg:w-1/4">
+            <UserProfile 
+              name={profile.name}
+              imagePath="/profile.jpg"
+              resumeUrl="/resume"
+              resumePdfUrl="/resume.pdf"
+            />
+            
+            <SidebarNav />
+          </div>
+          
+          {/* Main feed */}
+          <div className="lg:w-2/4">
+            {/* New post input */}
+            <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+              <div className="px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus-within:border-blue-500">
+                <input 
+                  type="text" 
+                  placeholder="Share insights or ask questions..." 
+                  className="bg-transparent w-full outline-none text-gray-700" 
+                />
+              </div>
+              <div className="flex justify-end mt-3">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                  Post
+                </button>
+              </div>
+            </div>
+            
+            {/* Posts feed */}
+            <div className="space-y-4">
+              {posts.map((post, index) => (
+                <PostCard
+                  key={index}
+                  type={post.type}
+                  author={post.author}
+                  timestamp={post.timestamp}
+                  content={post.content}
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* Right sidebar */}
+          <div className="lg:w-1/4">
+            <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+              <h2 className="text-xl font-bold mb-4 text-blue-600">Finance News</h2>
+              
+              {newsItems.map((item, index) => (
+                <NewsCard 
+                  key={index}
+                  title={item.title}
+                  timeAgo={item.timeAgo}
+                  readers={item.readers}
+                />
+              ))}
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <h2 className="text-xl font-bold mb-4 text-blue-600">Upcoming Events</h2>
+              <ul className="space-y-3">
+                <li className="pb-3 border-b">
+                  <p className="font-semibold">Finance Career Fair</p>
+                  <p className="text-sm text-gray-600">Oct 15, 2023 • Virtual</p>
+                </li>
+                <li className="pb-3 border-b">
+                  <p className="font-semibold">Investment Strategy Workshop</p>
+                  <p className="text-sm text-gray-600">Oct 22, 2023 • Online</p>
+                </li>
+                <li>
+                  <p className="font-semibold">Financial Modeling Competition</p>
+                  <p className="text-sm text-gray-600">Nov 5-7, 2023 • Registration Open</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

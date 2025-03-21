@@ -7,18 +7,17 @@ export default function Header() {
   const pathname = usePathname();
   
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Finance Students', path: '/finance-students' },
-    { name: 'Community', path: '/community' },
-    { name: 'Messages', path: '/messages' },
-    { name: 'News', path: '/news' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Students', path: '/finance-students' },
+    { name: 'Dashboard', path: '/home' },
+    { name: 'Sign In', path: '/login' },
   ];
   
   return (
     <header className="bg-white shadow-sm py-4 sticky top-0 z-10">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-blue-600">
+          <Link href="/" className="text-3xl font-bold text-blue-600">
             Luni Community
           </Link>
           
@@ -29,9 +28,7 @@ export default function Header() {
                   <Link 
                     href={item.path}
                     className={`text-gray-700 hover:text-blue-600 ${
-                      pathname === item.path || (item.path.includes('#') && pathname + item.path.substring(item.path.indexOf('#')) === item.path) 
-                        ? 'font-semibold text-blue-600' 
-                        : ''
+                      pathname === item.path ? 'font-semibold text-blue-600' : ''
                     }`}
                   >
                     {item.name}

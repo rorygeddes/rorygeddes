@@ -13,15 +13,18 @@ export default function SidebarNav() {
   const pathname = usePathname();
   
   const navItems: NavItem[] = [
-    { name: 'Updates', path: '/community/updates' },
-    { name: 'Announcements', path: '/community/announcements', count: 2 },
-    { name: 'New Users', path: '/community/new-users', count: 5 },
-    { name: 'Your Feed', path: '/community/feed' },
+    { name: 'Dashboard', path: '/home' },
+    { name: 'Finance Students', path: '/finance-students' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Learning Resources', path: '/resources', count: 3 },
+    { name: 'Job Opportunities', path: '/jobs', count: 12 },
+    { name: 'Financial News', path: '/news' },
+    { name: 'My Profile', path: '/about' },
   ];
   
   return (
     <div className="bg-white rounded-lg shadow-md p-4 mb-6">
-      <h2 className="text-xl font-bold mb-4 text-gray-900">Community</h2>
+      <h2 className="text-xl font-bold mb-4 text-blue-600">Navigate</h2>
       
       <nav>
         <ul className="space-y-2">
@@ -37,7 +40,7 @@ export default function SidebarNav() {
               >
                 <span>{item.name}</span>
                 {item.count && (
-                  <span className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
                     {item.count}
                   </span>
                 )}

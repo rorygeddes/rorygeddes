@@ -15,7 +15,7 @@ export default function PostCard({ type, author, timestamp, content }: PostCardP
       case 'system':
         return (
           <div className="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-600 rounded-lg">
-            <span className="font-bold">Syste</span>
+            <span className="font-bold">System</span>
           </div>
         );
       case 'tech':
