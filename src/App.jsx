@@ -80,6 +80,32 @@ function App() {
     setError(null);
   };
 
+  // Function to handle resume download
+  const handleResumeDownload = () => {
+    // Define the URL to your resume file
+    const resumeUrl = '/assets/Rory_Geddes_Resume_2025.pdf';
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.target = '_blank';
+    link.download = 'Rory_Geddes_Resume_2025.pdf';
+    
+    // Append to the document, click it, and remove it
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Also provide feedback to the user
+    setAiResponse(
+      <div className="flex flex-col items-center text-center">
+        <p className="text-xl mb-4">Here's my resume!</p>
+        <p className="mb-4">Your download should have started automatically.</p>
+        <p>If it didn't, <a href={resumeUrl} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">click here</a> to view it directly.</p>
+      </div>
+    );
+  };
+
   // Handle the AI API response and set up typing
   const handleAIResponse = (responseText, title = null) => {
     // Set up the typing animation
@@ -98,28 +124,39 @@ function App() {
 
   // Handle prompt click - now with actual API call
   const handlePromptClick = async (prompt) => {
+    setInputValue(prompt);
+    setShowSuggestions(false);
+    
+    // Handle special case for Resume
+    if (prompt === "Resume") {
+      handleResumeDownload();
+      return;
+    }
+    
+    // Handle other prompts as before
     try {
       setIsLoading(true);
       setError(null);
       
-      // Update the related prompts based on selection
-      if (allPrompts[prompt]) {
-        setCurrentPrompts(allPrompts[prompt]);
-      } else {
-        // If no specific related prompts, go back to defaults
-        setCurrentPrompts(allPrompts.default);
-      }
+      const response = await getPersonalInfo(prompt);
       
-      // Call Claude API
-      const responseText = await getPersonalInfo(`Tell me about your ${prompt.toLowerCase()}`);
-      handleAIResponse(responseText, prompt);
-    } catch (err) {
-      setError(`Sorry, I couldn't process that request: ${err.message}`);
+      // Setup text for typing animation
+      textToType.current = response;
+      setIsTyping(true);
+      setDisplayedText('');
+      
+      // Create formatted response with proper styling
       setAiResponse(
-        <div className="text-center text-red-500 animate-fade-in">
-          <p>Sorry, there was an error connecting to the AI service. Please try again later.</p>
+        <div className="animate-fade-in py-4">
+          <h2 className="text-2xl font-semibold mb-4">{prompt}</h2>
+          <div className="prose prose-lg max-w-none">
+            <p>{displayedText}</p>
+          </div>
         </div>
       );
+    } catch (err) {
+      console.error('Error fetching response:', err);
+      setError(`Sorry, I couldn't process your request. ${err.message}`);
     } finally {
       setIsLoading(false);
     }

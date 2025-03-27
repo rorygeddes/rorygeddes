@@ -23,6 +23,11 @@ jobs:
     - name: Build
       run: npm run build
       
+    - name: Copy public assets to dist
+      run: |
+        mkdir -p dist/assets
+        cp -r public/assets/* dist/assets/ || true
+      
     - name: Create proxy and .htaccess files
       run: |
         # Create proxy.php file
