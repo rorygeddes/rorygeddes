@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.2;
+  }
+  
+  p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+}
+
+@layer components {
+  .typing-text {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  
+  .typing-text::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+  }
+
+  .typing-text-complete {
+    display: inline-block;
+  }
+  
+  .typing-text-complete::after {
+    content: '';
+  }
+}
+
+@layer utilities {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body {
+  @apply bg-white text-black;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhance mobile experience */
+@media (max-width: 640px) {
+  button {
+    min-height: 44px; /* Ensure buttons are touch-friendly */
+  }
+  
+  input {
+    font-size: 16px; /* Prevent zoom on focus in iOS */
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
