@@ -56,3 +56,6 @@ yarn-error.log*
 # Deployment files
 build.zip
 build_for_cpanel.zip
+
+# API key file
+api_key.php

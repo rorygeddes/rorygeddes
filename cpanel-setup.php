@@ -71,8 +71,10 @@ if (\$_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 \$request_body = file_get_contents('php://input');
 \$data = json_decode(\$request_body, true);
 
-// Your API key - IMPORTANT: Replace with your actual API key
-\$api_key = 'YOUR_ANTHROPIC_API_KEY_HERE';
+// Set API key - Create a file called api_key.php with your key
+// This file should contain: <?php define('ANTHROPIC_API_KEY', 'your-api-key-here'); ?>
+require_once('api_key.php');
+\$api_key = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : '';
 
 // Make request to Anthropic API
 \$ch = curl_init('https://api.anthropic.com/v1/messages');
