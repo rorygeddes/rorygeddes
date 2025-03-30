@@ -1,183 +1,192 @@
-/* Base Styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.App {
+  text-align: center;
 }
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #333;
-  background-color: #f8f9fa;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-/* Animation */
-@keyframes fadeIn {
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
   from {
-    opacity: 0;
-    transform: translateY(10px);
+    transform: rotate(0deg);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-in-out forwards;
+.cover-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  line-height: 1.2;
+.cover-content {
+  text-align: center;
+  padding: 2rem;
 }
 
-p {
+.cover-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  line-height: 1.6;
+  background: linear-gradient(45deg, #fff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Layout */
-.max-w-none {
-  max-width: none;
+.cover-content h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #a0a0a0;
 }
 
-.prose {
-  max-width: 65ch;
-  line-height: 1.6;
+.linkedin-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #0077b5;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
-.prose-lg {
-  font-size: 1.125rem;
+.linkedin-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  background-color: #006097;
 }
 
-/* Resume specific styling */
-.resume-content h3 {
-  border-bottom: 2px solid #000;
-  padding-bottom: 0.25rem;
-  margin-bottom: 1rem;
+.enter-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.resume-content ul {
-  margin-bottom: 1rem;
+.enter-button:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-.resume-content li {
-  margin-bottom: 0.5rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+@media (max-width: 640px) {
+  .cover-content h1 {
+    font-size: 3rem;
   }
   
-  .prose-lg {
-    font-size: 1rem;
+  .cover-content h2 {
+    font-size: 1.25rem;
   }
 }
 
-/* Utility classes to match TailwindCSS classes used in the JSX */
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
-.flex-1 { flex: 1; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.gap-2 { gap: 0.5rem; }
-.gap-6 { gap: 1.5rem; }
-.gap-8 { gap: 2rem; }
-.w-full { width: 100%; }
-.h-screen { height: 100vh; }
-.max-w-3xl { max-width: 48rem; }
-.max-w-6xl { max-width: 72rem; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.my-4 { margin-top: 1rem; margin-bottom: 1rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-.mt-4 { margin-top: 1rem; }
-.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-.px-4 { padding-left: 1rem; padding-right: 1rem; }
-.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
-.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-.pt-6 { padding-top: 1.5rem; }
-.pb-2 { padding-bottom: 0.5rem; }
-.text-center { text-align: center; }
-.text-3xl { font-size: 1.875rem; }
-.text-5xl { font-size: 3rem; }
-.text-sm { font-size: 0.875rem; }
-.text-lg { font-size: 1.125rem; }
-.text-xl { font-size: 1.25rem; }
-.text-2xl { font-size: 1.5rem; }
-.font-bold { font-weight: 700; }
-.font-semibold { font-weight: 600; }
-.font-medium { font-weight: 500; }
-.font-normal { font-weight: 400; }
-.rounded-lg { border-radius: 0.5rem; }
-.rounded-full { border-radius: 9999px; }
-.border-2 { border-width: 2px; }
-.border-t { border-top-width: 1px; }
-.border-b { border-bottom-width: 1px; }
-.border-black { border-color: #000; }
-.border-gray-200 { border-color: #e5e7eb; }
-.bg-white { background-color: #fff; }
-.bg-gray-100 { background-color: #f3f4f6; }
-.text-gray-600 { color: #4b5563; }
-.text-blue-600 { color: #2563eb; }
-.hover\:bg-gray-200:hover { background-color: #e5e7eb; }
-.hover\:text-gray-800:hover { color: #1f2937; }
-.hover\:text-blue-800:hover { color: #1e40af; }
-.hover\:opacity-80:hover { opacity: 0.8; }
-.hover\:shadow-md:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-.transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-.transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-.transition-opacity { transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-.whitespace-nowrap { white-space: nowrap; }
-.overflow-hidden { overflow: hidden; }
-.overflow-y-auto { overflow-y: auto; }
-.text-ellipsis { text-overflow: ellipsis; }
-.relative { position: relative; }
-.absolute { position: absolute; }
-.fixed { position: fixed; }
-.top-1\/2 { top: 50%; }
-.right-4 { right: 1rem; }
-.bottom-0 { bottom: 0; }
-.left-0 { left: 0; }
-.right-0 { right: 0; }
-.-translate-y-1\/2 { transform: translateY(-50%); }
-.w-7 { width: 1.75rem; }
-.h-7 { height: 1.75rem; }
-.w-48 { width: 12rem; }
-.h-48 { height: 12rem; }
-.object-cover { object-fit: cover; }
-.flex-shrink-0 { flex-shrink: 0; }
-.cursor-pointer { cursor: pointer; }
-.touch-manipulation { touch-action: manipulation; }
-.min-w-0 { min-width: 0; }
-.space-y-1 > * + * { margin-top: 0.25rem; }
-.space-y-2 > * + * { margin-top: 0.5rem; }
-.list-disc { list-style-type: disc; }
-.pl-5 { padding-left: 1.25rem; }
-.pl-10 { padding-left: 2.5rem; }
-.inline-flex { display: inline-flex; }
-.italic { font-style: italic; }
-.mb-20 { margin-bottom: 5rem; }
+/* Main App Layout */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-/* Media queries to match TailwindCSS responsive classes */
-@media (min-width: 768px) {
-  .md\:flex-row { flex-direction: row; }
-  .md\:text-base { font-size: 1rem; }
-  .md\:text-7xl { font-size: 4.5rem; }
-  .md\:pt-8 { padding-top: 2rem; }
-  .md\:pb-2 { padding-bottom: 0.5rem; }
-} 
+/* Header Styles */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Main Content Styles */
+main {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+main::-webkit-scrollbar {
+  width: 8px;
+}
+
+main::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Footer Styles */
+footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background-color: white;
+}
+
+/* Textarea Styles */
+textarea {
+  font-family: inherit;
+  line-height: 1.5;
+  padding-right: 120px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  footer {
+    padding: 0.5rem;
+  }
+  
+  textarea {
+    padding-right: 100px;
+  }
+  
+  .text-xs {
+    display: none;
+  }
+}
