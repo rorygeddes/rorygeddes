@@ -5,21 +5,25 @@ import './App.css'
 function App() {
   // States
   const [aiResponse, setAiResponse] = useState(
-    <div className="animate-fade-in py-4">
-      <h2 className="text-3xl font-semibold mb-6 text-center">Welcome!</h2>
-      <div className="flex flex-col md:flex-row items-center gap-8 mb-6">
-        <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg border-2 border-gray-200 flex-shrink-0">
+    <div className="animate-fade-in py-1">
+      <h2 className="welcome-heading text-center">Welcome to my personal website!</h2>
+      <div className="status-indicator mb-4">
+        <span className="dot"></span>
+        <span>Currently based in Halifax, NS | Open to internships Fall 2025</span>
+      </div>
+      <div className="flex flex-row items-start gap-8 mb-6">
+        <div className="profile-image-container">
           <img 
             src="/assets/profile.png" 
             alt="Rory Geddes" 
-            className="w-full h-full object-cover"
+            className="profile-image"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = "https://via.placeholder.com/200x200.png?text=RG";
             }}
           />
         </div>
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-lg">
           <p className="mb-4">
             Hi! I'm Rory Geddes, a second-year Commerce Co-op student at Dalhousie University, majoring in Finance and minoring in Computer Science. I'm always eager to learn and passionate about being creative, especially in the business world where I thrive on exploring new ideas and finding innovative solutions.
           </p>
@@ -28,18 +32,20 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="prose prose-lg max-w-none">
-        <p className="mb-4">
+      <div className="prose text-center max-w-none mx-auto">
+        <p className="mb-4 text-center">
           Navigate through my portfolio using the buttons below:
         </p>
-        <ul className="space-y-2">
-          <li><strong>Resume</strong> - View or download my professional resume</li>
-          <li><strong>Projects</strong> - Explore my featured development projects</li>
-          <li><strong>Experience</strong> - Learn about my professional background</li>
-          <li><strong>About</strong> - Get to know me better</li>
-          <li><strong>Contact</strong> - Connect with me</li>
-        </ul>
-        <p className="mt-4">
+        <div className="mx-auto" style={{maxWidth: "450px"}}>
+          <ul className="space-y-2 list-none pl-0 text-left">
+            <li><strong>Resume</strong> - View or download my professional resume</li>
+            <li><strong>Projects</strong> - Explore my featured development projects</li>
+            <li><strong>Experience</strong> - Learn about my professional background</li>
+            <li><strong>About</strong> - Get to know me better</li>
+            <li><strong>Contact</strong> - Connect with me</li>
+          </ul>
+        </div>
+        <p className="mt-4 text-center">
           Click any button to explore, and discover related topics through the dynamic navigation system. Each click reveals new, relevant options to help you find exactly what you're looking for.
         </p>
       </div>
@@ -175,7 +181,7 @@ function App() {
         <div className="flex justify-center mb-6 mt-2">
           <a 
             href={resumeUrl} 
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+            className="flex items-center gap-2 px-5 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
             download="Rory_Geddes_Resume_2025.pdf"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -347,21 +353,25 @@ function App() {
     setCurrentSection(null);
     setCurrentKeywords(["Resume", "Projects", "Experience", "About", "Contact"]);
     setAiResponse(
-      <div className="animate-fade-in py-4">
-        <h2 className="text-3xl font-semibold mb-6 text-center">Welcome!</h2>
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-6">
-          <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg border-2 border-gray-200 flex-shrink-0">
+      <div className="animate-fade-in py-1">
+        <h2 className="welcome-heading text-center">Welcome to my personal website!</h2>
+        <div className="status-indicator mb-4">
+          <span className="dot"></span>
+          <span>Currently based in Halifax, NS | Open to internships Fall 2025</span>
+        </div>
+        <div className="flex flex-row items-start gap-8 mb-6">
+          <div className="profile-image-container">
             <img 
               src="/assets/profile.png" 
               alt="Rory Geddes" 
-              className="w-full h-full object-cover"
+              className="profile-image"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://via.placeholder.com/200x200.png?text=RG";
               }}
             />
           </div>
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg">
             <p className="mb-4">
               Hi! I'm Rory Geddes, a second-year Commerce Co-op student at Dalhousie University, majoring in Finance and minoring in Computer Science. I'm always eager to learn and passionate about being creative, especially in the business world where I thrive on exploring new ideas and finding innovative solutions.
             </p>
@@ -370,18 +380,20 @@ function App() {
             </p>
           </div>
         </div>
-        <div className="prose prose-lg max-w-none">
-          <p className="mb-4">
+        <div className="prose text-center max-w-none mx-auto">
+          <p className="mb-4 text-center">
             Navigate through my portfolio using the buttons below:
           </p>
-          <ul className="space-y-2">
-            <li><strong>Resume</strong> - View or download my professional resume</li>
-            <li><strong>Projects</strong> - Explore my featured development projects</li>
-            <li><strong>Experience</strong> - Learn about my professional background</li>
-            <li><strong>About</strong> - Get to know me better</li>
-            <li><strong>Contact</strong> - Connect with me</li>
-          </ul>
-          <p className="mt-4">
+          <div className="mx-auto" style={{maxWidth: "450px"}}>
+            <ul className="space-y-2 list-none pl-0 text-left">
+              <li><strong>Resume</strong> - View or download my professional resume</li>
+              <li><strong>Projects</strong> - Explore my featured development projects</li>
+              <li><strong>Experience</strong> - Learn about my professional background</li>
+              <li><strong>About</strong> - Get to know me better</li>
+              <li><strong>Contact</strong> - Connect with me</li>
+            </ul>
+          </div>
+          <p className="mt-4 text-center">
             Click any button to explore, and discover related topics through the dynamic navigation system. Each click reveals new, relevant options to help you find exactly what you're looking for.
           </p>
         </div>
@@ -392,15 +404,15 @@ function App() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* Fixed Header */}
-      <header className="w-full pt-6 pb-2 md:pt-8 md:pb-2 bg-white border-b">
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-6">
+      <header className="w-full pt-4 pb-2 md:pt-6 md:pb-2 bg-white border-b">
+        <div className="max-w-6xl mx-auto px-4 relative text-center">
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-4 md:gap-6 header-icons">
             <a 
               href="mailto:rory.geddes@dal.ca" 
               className="text-gray-600 hover:text-gray-800 transition-colors"
               title="Email"
             >
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
@@ -412,13 +424,13 @@ function App() {
               className="text-blue-600 hover:text-blue-800 transition-colors"
               title="LinkedIn"
             >
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </a>
           </div>
           <h1 
-            className="text-5xl md:text-7xl font-bold cursor-pointer hover:opacity-80 transition-opacity text-center" 
+            className="text-4xl md:text-5xl lg:text-7xl font-bold cursor-pointer hover:opacity-80 transition-opacity text-center" 
             onClick={resetToHome}
           >
             Rory Geddes
@@ -427,22 +439,22 @@ function App() {
       </header>
       
       {/* Scrollable Main Content */}
-      <main className="flex-1 overflow-y-auto px-4 py-6 mb-20">
+      <main className="flex-1 overflow-y-auto px-2 md:px-4 py-2 mb-20 main-content">
         <div className="max-w-3xl mx-auto">
           {aiResponse}
         </div>
       </main>
 
       {/* Fixed Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg px-4 py-3">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg px-2 md:px-4 py-2 md:py-3">
         <div className="max-w-3xl mx-auto">
-          <div className="flex gap-2 justify-between items-center">
+          <div className="button-container">
             {currentKeywords.map((keyword, index) => (
               <button
                 key={`nav-${keyword}-${index}`}
                 onClick={() => handleKeywordClick(keyword)}
-                className={`flex-1 min-w-0 bg-gray-100 hover:bg-gray-200 px-3 py-2.5 text-sm md:text-base rounded-lg shadow-sm transition-all hover:shadow-md touch-manipulation whitespace-nowrap overflow-hidden text-ellipsis
-                  ${keyword === currentSection ? 'border-2 border-black' : ''}`}
+                className={`px-3 md:px-4 py-2 md:py-2.5 rounded-lg shadow-sm transition-all hover:shadow-md touch-manipulation bg-gray-100 hover:bg-gray-200
+                  ${keyword === currentSection ? 'border-2 border-black selected' : ''}`}
                 style={{
                   animation: `fadeIn 0.2s ease-in-out forwards`,
                   animationDelay: `${index * 30}ms`,
