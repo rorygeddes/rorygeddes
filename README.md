@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# Rory Geddes Ventures
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal website and investment platform for Rory Geddes, showcasing projects and allowing supporters to invest in his journey.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Minimalist Design**: Clean, black and white theme with rounded card sections
+- **Project Showcase**: Highlights key projects like Luni, Luni Community, and Excel Budget Template
+- **Investment Platform**: Allows supporters to invest at different tiers (Bronze, Silver, Gold, Angel)
+- **Live Roadmap**: Shows upcoming goals and milestones
+- **Updates**: Blog/newsletter style updates for followers
+- **Chat Feature**: Direct interaction with Rory
+- **Mobile Responsive**: Fully responsive design for all devices
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React.js with TypeScript
+- React Router for navigation
+- Tailwind CSS for styling
+- Heroicons for icons
+- Future integration with payment processing (currently placeholder)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+1. Clone the repository:
+   ```
+   git clone https://github.com/rorygeddes/roryventures.git
+   cd roryventures
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-### `npm run build`
+3. Start the development server:
+   ```
+   npm start
+   ```
+   
+   or
+   
+   ```
+   npm run dev
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Build for production:
+   ```
+   npm run build
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `/src/components`: Reusable UI components
+- `/src/pages`: Main page components
+- `/src/assets`: Static assets like images
+- `/src/styles`: Global styles and Tailwind configuration
 
-### `npm run eject`
+## Future Enhancements
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- User authentication for investors
+- Payment processing integration
+- Chat backend integration
+- Email newsletter subscription
+- Analytics dashboard for Rory
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Connect with Rory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- GitHub: [github.com/rorygeddes](https://github.com/rorygeddes)
+- Email: contact@roryventures.com (placeholder)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is privately owned by Rory Geddes.
